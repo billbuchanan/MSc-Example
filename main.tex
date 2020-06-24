@@ -1,0 +1,91 @@
+%\documentclass{report}
+\documentclass[12pt,oneside,a4paper]{book}
+\usepackage{multicol}
+\usepackage{csquotes}
+
+\usepackage{float} 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{40pt} 
+\usepackage{float} 
+\usepackage{pdfpages}
+\usepackage{chngcntr}
+%\counterwithin{figure}{section}
+%\renewcommand\thefigure{\thesection-\arabic{figure}}
+%\renewcommand\thefigure{\arabic{figure}}
+%\counterwithin{table}{section}
+%\renewcommand\thetable{\thesection-\arabic{table}}
+%\renewcommand\thetable{\arabic{table}}
+
+%\counterwithin{equation}{section}
+%\renewcommand\theequation{\thesection-\arabic{equation}}
+\usepackage{lastpage}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
+
+\renewcommand{\headrulewidth}{1pt}
+
+
+
+
+\usepackage{glossaries}
+\makeglossaries
+
+\begin{document}
+\pagenumbering{roman} 
+
+\include{title_page}
+\include{abstact}
+\include{declarations}
+\include{ack}
+
+
+\listoffigures
+
+\listoftables
+
+
+
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\newpage{}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\include {01_introduction}
+\include {02_literature_review}
+\include {03_design}
+\include {04_implementation}
+
+\include {05_evaluation}
+
+\include {06_conclusion}
+
+
+\bibliography{mybib}
+\bibliographystyle{IEEEtran}
+\clearpage
+\include {glossary}
+\clearpage
+\setglossarystyle{altlist}
+
+\printglossaries
+\end{document}
