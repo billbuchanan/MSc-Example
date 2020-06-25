@@ -1,4 +1,4 @@
-%\documentclass{report}
+% This is a modified version of a template originally developed by Bill Buchanan. If you have any questions, please contact Simon Powers (S.Powers@napier.ac.uk)
 \documentclass[12pt,oneside,a4paper]{book}
 \usepackage{multicol}
 \usepackage{csquotes}
@@ -8,7 +8,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{tabularx}
 \usepackage{hyperref}
-
+\usepackage{natbib}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
@@ -44,26 +44,25 @@
 
 
 \usepackage{glossaries}
-\makeglossaries
 
+\makeglossaries
+\loadglsentries{glossary.tex}
 \begin{document}
 \pagenumbering{roman} 
 
 \include{title_page}
-\include{abstact}
 \include{declarations}
-\include{ack}
+\include{abstract}
+\tableofcontents
 
-
-\listoffigures
 
 \listoftables
-
-
+\listoffigures
+\include{ack}
 
 \pagebreak
 
-\tableofcontents
+
 \pagebreak
 
 \newpage{}
@@ -79,13 +78,13 @@
 
 \include {06_conclusion}
 
-
+\renewcommand\bibname{References}
 \bibliography{mybib}
-\bibliographystyle{IEEEtran}
+\bibliographystyle{apalike}
 \clearpage
-\include {glossary}
+%you will need to run the makeglossaries command if you are using a local installation of Latex to get the glossary to be printed.
+\printglossary[type=\acronymtype]
+\printglossary
 \clearpage
-\setglossarystyle{altlist}
-
-\printglossaries
+%appendices come after the references and glossary
 \end{document}
